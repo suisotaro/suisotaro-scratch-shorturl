@@ -1,0 +1,27 @@
+<script>
+  function Dec(Sid){
+    return parseInt(Sid, 36);
+  }
+
+  var id = location.pathname.slice(1);
+  var type = id.slice(0, 1);
+  id = Dec(id.slice(1));
+  switch (type){
+    case 'w': //wiki
+      location.replace(301, `https://ja.scratch-wiki.info/w/index.php?curid=${id}`);
+      break;
+    case 's': //studio
+      location.replace(301, `https://scratch.mit.edu/studios/${id}`);
+      break;
+    case 'f': //forum(post)
+      location.replace(301, `https://scratch.mit.edu/discuss/post/${id}`)
+      break;
+    case 'd': //forum(topic)
+      location.replace(301, `https://scratch.mit.edu/discuss/topic/${id}`);
+      break;
+    case 'p': //project
+      location.replace(301, `https://scratch.mit.edu/projects/${id}`);
+    default: 
+      document.write("<h1>error!</h1>このurlは存在しません");
+  }
+</script>
